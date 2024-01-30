@@ -14,7 +14,7 @@
       - '-c'
       - |
         gcloud container clusters get-credentials autopilot-cluster-1 --zone europe-west1 --project data-academy-project-411312
-        kubectl set image europe-west1-docker.pkg.dev/data-academy-project-411312/docker-rep-demo/demo-app demo-app-container=europe-west1-docker.pkg.dev/data-academy-project-411312/docker-rep-demo/demo-app
+        kubectl set image docker-rep-demo/demo-app demo-app-container=europe-west1-docker.pkg.dev/data-academy-project-411312/docker-rep-demo/demo-app
 
 images:
   - 'europe-west1-docker.pkg.dev/data-academy-project-411312/docker-rep-demo/demo-app'
