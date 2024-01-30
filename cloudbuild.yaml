@@ -1,19 +1,11 @@
-steps:
-- name: 'gcr.io/cloud-builders/docker'
-  args: ['build', '-t', 'gcr.io/data-academy-project-411312/demo-app', 'app/']
-images:
-- 'gcr.io/data-academy-project-411312/demo-app'
-
-
-
-steps:
+  steps:
   # Build the Docker image
   - name: 'gcr.io/cloud-builders/docker'
-    args: ['build', '-t', 'gcr.io/data-academy-project-411312/demo-app', 'app/']
+    args: ['build', '-t', 'europe-west1-docker.pkg.dev/data-academy-project-411312/demo-app', 'app/']
 
   # Push the image to Artifact Registry
   - name: 'gcr.io/cloud-builders/docker'
-    args: ['push', 'gcr.io/data-academy-project-411312/demo-app']
+    args: ['push', 'europe-west1-docker.pkg.dev/data-academy-project-411312/demo-app']
 
   # Set up kubectl
   - name: 'gcr.io/cloud-builders/kubectl'
@@ -22,7 +14,7 @@ steps:
       - '-c'
       - |
         gcloud container clusters get-credentials autopilot-cluster-1 --zone europe-west1 --project data-academy-project-411312
-        kubectl set image deployment/demo-app demo-app-container=gcr.io/data-academy-project-411312/demo-app
+        kubectl set image deployment/demo-app demo-app-container=europe-west1-docker.pkg.dev/data-academy-project-411312/demo-app
 
 images:
-  - 'gcr.io/data-academy-project-411312/demo-app'
+  - 'europe-west1-docker.pkg.dev/data-academy-project-411312/demo-app'
