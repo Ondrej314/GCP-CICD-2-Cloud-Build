@@ -15,7 +15,7 @@
       - |
         gcloud container clusters get-credentials autopilot-cluster-1 --zone europe-west1 --project data-academy-project-411312
         kubectl apply -f deployment.yaml
-        kubectl rollout status deployment quest-deployment
+        kubectl rollout status deployment demo-app
 
 
 images:
