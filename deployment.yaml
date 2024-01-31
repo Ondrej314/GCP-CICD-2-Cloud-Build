@@ -14,4 +14,4 @@ spec:
     spec:
       containers:
       - name: demo-app-container
-        image: europe-west1-docker.pkg.dev/data-academy-project-411312/demo-app
+        image: europe-west1-docker.pkg.dev/data-academy-project-411312/docker-rep-demo/demo-app:latest

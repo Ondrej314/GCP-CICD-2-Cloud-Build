@@ -8,13 +8,15 @@
     args: ['push', 'europe-west1-docker.pkg.dev/data-academy-project-411312/docker-rep-demo/demo-app']
 
   # Set up kubectl
-  - name: 'gcr.io/cloud-builders/gcloud'
+  - name: 'gcr.io/cloud-builders/kubectl'
     entrypoint: 'bash'
     args:
       - '-c'
       - |
         gcloud container clusters get-credentials autopilot-cluster-1 --zone europe-west1 --project data-academy-project-411312
-        kubectl set image deployment/demo-app demo-app-container=europe-west1-docker.pkg.dev/data-academy-project-411312/docker-rep-demo/demo-app
+        kubectl apply -f deployment.yaml
+        kubectl rollout status deployment quest-deployment
+
 
 images:
   - 'europe-west1-docker.pkg.dev/data-academy-project-411312/docker-rep-demo/demo-app'
